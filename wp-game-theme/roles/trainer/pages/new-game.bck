@@ -1,0 +1,49 @@
+<?php
+/*
+Name: New Game
+Parent: games
+*/
+?>
+<div class="sd-translucent sd-rounded sd-padded">
+	<h5><?php SD_Theme::_e (/*T[*/'Would you like to start a new game?'/*]*/); ?></h5>
+	<hr />
+	<form action="" method="post">
+		<div class="row">
+			<div class="col-lg-6">
+				<label><?php SD_Theme::_e (/*T[*/'Game Name'/*]*/); ?>:</label>
+				<input class="form-control" type="text" value="" name="game_name" />
+
+				<label><?php SD_Theme::_e (/*T[*/'Number of Players'/*]*/); ?>:</label>
+				<select class="form-control select select-info select-block" data-toggle="select" name="game_players">
+<?php for ($number = 1; $number < 10; $number ++) : ?>
+					<option value="<?php echo $number; ?>"><?php echo $number; ?></option>
+<?php endfor; ?>
+				</select>
+
+				<label><?php SD_Theme::_e (/*T[*/'Game Scenario'/*]*/); ?>:</label>
+				<select class="form-control select select-info select-block" data-toggle="select" name="game_scenario">
+<?php
+$scenarios = new SD_List ('SD_Scenario');
+if ($scenarios->is ('empty')) : ?>
+					<option value=""><?php SD_Theme::_e (/*T[*/'No available scenario.'/*]*/); ?></option>
+<?php else : ?>
+					<option value=""><?php SD_Theme::_e (/*T[*/'Choose a scenario ...'/*]*/); ?></option>
+<?php
+	foreach ($scenarios->get () as $scenario) : ?>
+					<option value="<?php echo $scenario->get (); ?>"><?php echo $scenario->get ('name'); ?></option>
+<?php
+	endforeach;
+endif; ?>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3">
+				<a href="#" class="btn btn-sm btn-block btn-danger"><i class="fui-cross"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Cancel'/*]*/); ?></a>
+			</div>
+			<div class="col-lg-3">
+				<button class="btn btn-sm btn-block btn-success" name="game_create"><i class="fui-check"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Start Game!'/*]*/); ?></button>
+			</div>
+		</div>
+	</form>
+</div>

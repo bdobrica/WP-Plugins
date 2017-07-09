@@ -1,0 +1,31 @@
+<?php
+$mobilpay = array (
+	1	=> 'Comanda a fost inregistrata. In cel mai scurt timp veti fi contactat de un reprezentant PostAsig.',
+	2	=> 'Plata a fost confirmata. In cel mai scurt timp vei fi contactat de un reprezentat de vanzari pentru a putea intra in posesia politei RCA.',
+	#2	=> 'Polita dumneavoastra RCA a fost incheiata. In cel mai scurt timp veti fi contactat de un reprezentant PostAsig pentru a putea intra in posesia politei.',
+	16	=> 'Cardul pe care l-ati folosit prezinta riscul de a fi furat. In acest moment tranzactia este oprita de catre banca. Va rugam contactati banca emitenta pentru a determina cauza acestei erori.',
+	17	=> 'Numarul cardului nu este corect.',
+	18	=> 'Cardul folosit este inchis. Contactati banca emitenta pentru a determina cauza acestei situatii.',
+	19	=> 'Cardul folosit este expirat. Contactati banca emitenta pentru a va reinoi cardul.',
+	20	=> 'Contul atasat cardului folosit contine fonduri insuficiente. Daca considerati ca este o eroare, va rugam sa contactati banca emitenta.',
+	21	=> 'Codul CCV/CCV2 nu este valid.',
+	22	=> 'Nu a putut fi contactata banca emitenta a cardului folosit. Va rugam sa contactati dumneavoastra banca pentru a rezolva aceasta situatie.',
+	32	=> 'Pretul produsului nu este corect.',
+	33	=> 'Moneda in care se incearca plata nu este corecta.',
+	34	=> 'Tranzactia nu este permisa titularului cardului. Contactati banca emitenta pentru a determina cauza acestei situatii.',
+	35	=> 'Tranzactia a fost refuzata de catre banca. Contactati banca emitenta pentru a determina cauza acestei situatii.',
+	36	=> 'Tranzactia este suspectata de frauda electronica. Contactati banca emitenta pentru a determina cauza acestei situatii.',
+	37	=> 'Tranzactia a fost refuzata de catre banca pentru incalcarea legii. Contactati banca emitenta pentru a determina cauza acestei situatii.',
+	38	=> 'Tranzactia a fost refuzata de catre banca. Contactati banca emitenta pentru a determina cauza acestei situatii.',
+	48	=> 'Cererea catre sistemul de plata nu a fost valida.',
+	49	=> 'Preautorizare dublata.',
+	50	=> 'Autorizare dublata.',
+	51	=> 'Puteti anula doar tranzactiile preautorizate.',
+	52	=> 'Puteti confirma doar tranzactiile preautorizate.',
+	53	=> 'Puteti credita numai comenzile confirmate.',
+	54	=> 'Valoarea creditarii este mai mare decat valoarea autorizata de catre banca. Contactati banca emitenta pentru a determina cauza acestei situatii.',
+	55	=> 'Valoarea retinuta este mai mare decat valoarea preautorizata.',
+	56	=> 'Cerere duplicata.',
+	99	=> 'Eroare oarecare. Expertiza noastra este legata strict de asigurari. Vom contacta in cel mai scurt timp personalul nostru tehnic.'
+	);
+?>

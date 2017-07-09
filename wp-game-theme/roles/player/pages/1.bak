@@ -1,0 +1,89 @@
+<?php
+$allow_submit = FALSE;
+if ($sd_user->get ('name') && $sd_user->get ('emails'))
+	$allow_submit = TRUE;
+
+$all_states = $sd_user->get ('state');
+$state = $all_states[SD_Game::ROUND0_BEGIN];
+?>
+<?php if ($state['submitted']) : ?>
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<p class="sd-info"><?php $sd_theme->out ('scenario', 'round0_end_message'); ?></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+		<a href="<?php $sd_theme->out ('url'); ?>" class="btn btn-lg btn-block btn-success"><i class="fui-play"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Continue'/*]*/); ?></a>
+	</div>
+</div>
+<?php else : ?>
+<?php	if (isset ($state['in_progress']) && $state['in_progress']) : ?>
+<div class="row">
+	<div class="col-lg-3 col-md-3 col-sm-2 hidden-xs">
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+		<fieldset>
+			<legend><?php SD_Theme::_e (/*T[*/'Are you ready?'/*]*/); ?></legend>
+			<form action="" method="post">
+				<div class="row">
+					<div class="col-lg-12">
+						<label><?php SD_Theme::_e (/*T[*/'Company Name'/*]*/); ?>:<?php SD_Theme::_h (__FILE__, __LINE__); ?></label>
+						<?php SD_Theme::inp ('name', $sd_user->get ('name'), 'string'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<label><?php SD_Theme::_e (/*T[*/'E-Mail Addresses'/*]*/); ?>:<?php SD_Theme::_h (__FILE__, __LINE__); ?></label>
+						<?php SD_Theme::inp ('emails', $sd_user->get ('emails'), 'textarea'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<a href="<?php $sd_theme->out ('url'); ?>" class="btn btn-sm btn-block btn-danger"><i class="fui-cross"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Cancel'/*]*/); ?></a>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<button class="btn btn-sm btn-block btn-success" name="player_update"><i class="fui-check"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Save'/*]*/); ?></button>
+					</div>
+				</div>
+<?php	 if ($allow_submit) : ?>
+				<div class="row">
+					<div class="col-lg-12">
+						<a href="" class="btn btn-sm btn-block btn-success sd-confirm"><i class="fui-play"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Submit'/*]*/); ?></a>
+					</div>
+				</div>
+				<div class="row sd-confirm hidden">
+					<div class="col-lg-12">
+						<label><?php SD_Theme::_e (/*T[*/'Are you sure you want to submit?'/*]*/); ?></label>
+					</div>
+					<div class="col-lg-6">
+						<a href="" class="btn btn-sm btn-block btn-danger sd-cancel"><i class="fui-cross"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'No'/*]*/); ?></a>
+					</div>
+					<div class="col-lg-6">
+						<button class="btn btn-sm btn-block btn-success" name="player_submit"><i class="fui-check"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Yes'/*]*/); ?></button>
+					</div>
+				</div>
+<?php	endif; ?>
+			</form>
+		</fieldset>
+	</div>
+</div>
+<?php	else : ?>
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<p><?php $sd_theme->out ('scenario', 'round0_begin_message'); ?></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+		<form action="" method="post">
+			<button class="btn btn-lg btn-block btn-success" name="player_begin"><i class="fui-play"></i>&nbsp;<?php SD_Theme::_e (/*T[*/'Begin'/*]*/); ?></a>
+		</form>
+	</div>
+</div>
+<?php	endif; ?>
+<?php endif; ?>
